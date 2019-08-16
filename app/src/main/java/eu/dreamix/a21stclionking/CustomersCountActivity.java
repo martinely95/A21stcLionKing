@@ -1,15 +1,17 @@
 package eu.dreamix.a21stclionking;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import static eu.dreamix.a21stclionking.Constants.INITIAL_CUSTOMERS_COUNT;
+
 public class CustomersCountActivity extends AppCompatActivity {
 
-    private static int customersCount = 1;
+    private int customersCount = INITIAL_CUSTOMERS_COUNT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,7 @@ public class CustomersCountActivity extends AppCompatActivity {
 
     public void onOkClick(View view) {
         Intent intent = new Intent(".CustomerMenuActivity");
-        intent.putExtra("customerCount", customersCount);
+        intent.putExtra("customersCount", customersCount);
         startActivity(intent);
     }
 
@@ -35,7 +37,11 @@ public class CustomersCountActivity extends AppCompatActivity {
     public void onDecreaseClick(View view) {
         TextView textView = findViewById(R.id.customerCount);
         customersCount = Integer.parseInt(textView.getText().toString());
-        textView.setText(String.valueOf(--customersCount > 1 ? customersCount : 1));
+        textView.setText(
+                String.valueOf(
+                        --customersCount > INITIAL_CUSTOMERS_COUNT ? customersCount : INITIAL_CUSTOMERS_COUNT
+                )
+        );
     }
 
 }
