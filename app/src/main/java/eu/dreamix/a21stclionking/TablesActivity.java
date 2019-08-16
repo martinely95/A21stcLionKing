@@ -14,7 +14,7 @@ public class TablesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tables);
     }
 
-    public void onClickImageListener(View view) {
+    public void onImageClick(View view) {
         Intent intent = new Intent(".CustomersCountActivity");
         startActivity(intent);
     }

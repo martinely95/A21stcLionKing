@@ -54,6 +54,8 @@
         android:layout_width="208dp"
         android:layout_height="70dp"
         android:layout_marginBottom="263dp"
+        android:clickable="true"
+        android:onClick="onOkClick"
         android:text="@android:string/ok"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
