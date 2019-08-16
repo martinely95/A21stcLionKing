@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class CustomersCountActivity extends AppCompatActivity {
 
@@ -17,5 +18,11 @@ public class CustomersCountActivity extends AppCompatActivity {
     public void onOkClick(View view) {
         Intent intent = new Intent(".CustomerMenuActivity");
         startActivity(intent);
+    }
+
+    public void onIncreaseClick(View view) {
+        TextView textView = findViewById(R.id.customerCount);
+        int customersCount = Integer.parseInt(textView.getText().toString());
+        textView.setText(String.valueOf(++customersCount));
     }
 }
