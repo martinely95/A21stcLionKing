@@ -29,6 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:clickable="true"
+        android:onClick="onDecreaseClick"
         android:text="-"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/button3"

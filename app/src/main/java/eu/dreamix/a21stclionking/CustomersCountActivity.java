@@ -25,4 +25,11 @@ public class CustomersCountActivity extends AppCompatActivity {
         int customersCount = Integer.parseInt(textView.getText().toString());
         textView.setText(String.valueOf(++customersCount));
     }
+
+    public void onDecreaseClick(View view) {
+        TextView textView = findViewById(R.id.customerCount);
+        int customersCount = Integer.parseInt(textView.getText().toString());
+        textView.setText(String.valueOf(--customersCount > 1 ? customersCount : 1));
+    }
+
 }
