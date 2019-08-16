@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CustomerMenuActivity"></activity>
-        <activity android:name=".CustomersCountActivity" />
+        <activity android:name=".CustomersCountActivity">
+            <intent-filter>
+                <action android:name=".CustomersCountActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".TablesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
