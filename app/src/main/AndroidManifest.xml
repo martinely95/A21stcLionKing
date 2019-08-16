@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomersCountActivity"></activity>
+        <activity android:name=".CustomerMenuActivity"></activity>
+        <activity android:name=".CustomersCountActivity" />
         <activity android:name=".TablesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
