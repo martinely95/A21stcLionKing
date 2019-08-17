@@ -3,6 +3,8 @@ package eu.dreamix.a21stclionking;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -26,19 +28,23 @@ public class CustomerMenuActivity extends AppCompatActivity {
     private void setRelativeLayout() {
         setContentView(R.layout.activity_customer_menu);
 
-        // Get the widgets reference from XML layout
-        RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl);
-        rl.setBackgroundColor(Color.parseColor("#83C0B448"));
-        addTextViewToLayout(rl, "Test");
+        LinearLayout layout = new LinearLayout(this);
+        setContentView(layout);
+        layout.setOrientation(LinearLayout.VERTICAL);
 
+        layout.setBackgroundColor(Color.parseColor("#83C0B448"));
+
+        for (int customerIndex = 0; customerIndex < customersCount; customerIndex++) {
+            addTextViewToLayout(layout, "Customer" + (customerIndex + 1));
+        }
     }
 
-    private void addTextViewToLayout(RelativeLayout rl, String text) {
+    private void addTextViewToLayout(ViewGroup layout, String text) {
         // Create a TextView programmatically.
-        TextView tv = new TextView(getApplicationContext());
+        TextView tv = new TextView(this);
 
         // Create a LayoutParams for TextView
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
                 RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
 
@@ -56,6 +62,6 @@ public class CustomerMenuActivity extends AppCompatActivity {
         tv.setTextSize(30);
 
         // Add newly created TextView to parent view group (RelativeLayout)
-        rl.addView(tv);
+        layout.addView(tv);
     }
 }
