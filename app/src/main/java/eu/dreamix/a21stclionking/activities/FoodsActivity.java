@@ -59,6 +59,7 @@ public class FoodsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long itemId) {
                 TextView textView = (TextView) view;
                 Storage.addMealToCustomerId(Storage.clientId, textView.getText().toString());
+                finish();
             }
         });
     }
