@@ -8,6 +8,21 @@
     tools:context=".activities.TablesActivity">
 
     <ImageView
+        android:id="@+id/table1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:clickable="true"
+        android:onClick="onImageClick"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintEnd_toStartOf="@+id/table2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/table2" />
+
+    <ImageView
         android:id="@+id/table2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,21 +49,6 @@
         app:layout_constraintEnd_toStartOf="@+id/table4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableText1" />
-
-    <ImageView
-        android:id="@+id/table1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:clickable="true"
-        android:onClick="onImageClick"
-        android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintEnd_toStartOf="@+id/table2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/table2" />
 
     <ImageView
         android:id="@+id/table4"

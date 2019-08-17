@@ -61,7 +61,6 @@ public class TablesActivity extends AppCompatActivity {
         Intent intent = new Intent(Constants.CUSTOMERS_COUNT_ACTIVITY);
         for (int i = 0; i < tableIds.length; i++) {
             if (view.getId() == tableIds[i]) {
-                System.out.println(i);
                 TextView tableLabel = findViewById(tableNamesIds[i]);
                 intent.putExtra(Constants.TABLE_NAME_EXTRA, tableLabel.getText());
             }
