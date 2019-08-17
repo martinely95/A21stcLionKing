@@ -3,6 +3,7 @@ package eu.dreamix.a21stclionking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,13 @@ public class TablesActivity extends AppCompatActivity {
             R.id.table2,
             R.id.table3,
             R.id.table4,
+    };
+
+    private int[] tableNamesIds = {
+            R.id.tableText1,
+            R.id.tableText2,
+            R.id.tableText3,
+            R.id.tableText4,
     };
 
     @Override
@@ -26,7 +34,8 @@ public class TablesActivity extends AppCompatActivity {
         for (int i = 0; i < tableIds.length; i++) {
             if (view.getId() == tableIds[i]) {
                 System.out.println(i);
-                intent.putExtra(Constants.TABLE_NAME_EXTRA, "Table " + (i + 1));
+                TextView tableLabel = findViewById(tableNamesIds[i]);
+                intent.putExtra(Constants.TABLE_NAME_EXTRA, tableLabel.getText());
             }
         }
         startActivity(intent);
