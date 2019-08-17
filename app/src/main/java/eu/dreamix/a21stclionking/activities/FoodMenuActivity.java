@@ -14,7 +14,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import eu.dreamix.a21stclionking.R;
+import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.util.model.Category;
+import eu.dreamix.a21stclionking.util.model.Storage;
 
 public class FoodMenuActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -32,6 +34,13 @@ public class FoodMenuActivity extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Constants.CUSTOMER_MENU_ACTIVITY);
+        intent.putExtra(Constants.CUSTOMERS_COUNT_EXTRA, Storage.customersCount);
+        startActivity(intent);
     }
 
     @Override
