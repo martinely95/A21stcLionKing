@@ -16,9 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+import eu.dreamix.a21stclionking.R;
 import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.util.PreviousMargins;
-import eu.dreamix.a21stclionking.R;
 import eu.dreamix.a21stclionking.util.model.Storage;
 
 import static eu.dreamix.a21stclionking.util.Constants.INITIAL_CUSTOMERS_COUNT;
@@ -38,17 +38,17 @@ public class CustomerMenuActivity extends AppCompatActivity {
     static final int LARGE_MARGIN = 80;
     static final int LEFT_CUSTOMER_BUTTON_MARGIN = CUSTOMER_MENU_BUTTON_WIDTH + SMALL_MARGIN;
     private static final int BUTTON_VERTICAL_MARGIN = 120;
-    private int customersCount = 1;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_menu);
-        customersCount = getIntent().getIntExtra(Constants.CUSTOMERS_COUNT_EXTRA, INITIAL_CUSTOMERS_COUNT);
-        System.out.println(customersCount);
+        Storage.customersCount = getIntent().getIntExtra(Constants.CUSTOMERS_COUNT_EXTRA, INITIAL_CUSTOMERS_COUNT);
+        System.out.println(Storage.customersCount);
         setRelativeLayout();
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setRelativeLayout() {
@@ -61,7 +61,20 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         PreviousMargins previousMargins = new PreviousMargins(-FIRST_CUSTOMER_VERTICAL_MARGIN_DECREASE, 0);
 
-        for (int customerIndex = 0; customerIndex < customersCount; customerIndex++) {
+
+        addButtonToLayoutVertically(
+                layout,
+                "Tables",
+                previousMargins,
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), TablesActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+        for (int customerIndex = 0; customerIndex < Storage.customersCount; customerIndex++) {
             previousMargins.leftMargin = 0;
             addEmptyCustomerToLayout(layout, "Customer" + (customerIndex + 1), previousMargins);
 
@@ -134,6 +147,41 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         tv.measure(0, 0);
         previousMargins.leftMargin += tv.getMeasuredWidth();
+    }
+
+    private void addButtonToLayoutVertically(ViewGroup layout,
+                                             String text,
+                                             PreviousMargins previousMargins,
+                                             View.OnClickListener onClickListener) {
+        // Create a TextView programmatically.
+        Button button = new Button(this);
+
+        // Create a LayoutParams for TextView
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+        lp.leftMargin = LEFT_MARGIN;
+        previousMargins.topMargin += BUTTON_VERTICAL_MARGIN;
+        lp.topMargin = previousMargins.topMargin;
+
+        // Apply the layout parameters to TextView widget
+        button.setLayoutParams(lp);
+
+        // Set text to display in TextView
+        button.setText(text);
+
+        // Set a text color for TextView text
+        button.setTextColor(Color.parseColor("#000000"));
+
+        button.setTypeface(null, Typeface.BOLD);
+
+        button.setTextSize(BUTTON_TEXT_SIZE);
+
+        button.setOnClickListener(onClickListener);
+
+        // Add newly created TextView to parent view group (RelativeLayout)
+        layout.addView(button);
     }
 
     private void addButtonToLayoutVertically(ViewGroup layout, String text, PreviousMargins previousMargins) {

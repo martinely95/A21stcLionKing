@@ -12,6 +12,7 @@ import java.util.List;
 public class Storage {
 
     public static int clientId = 0;
+    public static int customersCount = 1;
 
     private static HashMap<Integer, List<String>> customerMeals = new HashMap<>();
 
