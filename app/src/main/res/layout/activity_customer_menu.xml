@@ -6,5 +6,5 @@
     android:layout_height="match_parent"
     android:background="#83C0B448"
     android:id="@+id/mainConstraint"
-    tools:context=".CustomerMenuActivity">
+    tools:context=".activities.CustomerMenuActivity">
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import eu.dreamix.a21stclionking.activities.CustomersCountActivity;
+
 import static org.junit.Assert.assertNotEquals;
 
 public class ButtonHeightsTest {
