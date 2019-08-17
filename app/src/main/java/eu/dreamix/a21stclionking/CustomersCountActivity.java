@@ -22,12 +22,12 @@ public class CustomersCountActivity extends AppCompatActivity {
         textView.setText(String.valueOf(customersCount));
 
         TextView tableName = findViewById(R.id.tableName);
-        tableName.setText(getIntent().getStringExtra("tableName"));
+        tableName.setText(getIntent().getStringExtra(Constants.TABLE_NAME_EXTRA));
     }
 
     public void onOkClick(View view) {
-        Intent intent = new Intent(".CustomerMenuActivity");
-        intent.putExtra("customersCount", customersCount);
+        Intent intent = new Intent(Constants.CUSTOMER_MENU_ACTIVITY);
+        intent.putExtra(Constants.CUSTOMERS_COUNT_EXTRA, customersCount);
         startActivity(intent);
     }
 

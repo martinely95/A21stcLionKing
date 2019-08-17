@@ -22,11 +22,11 @@ public class TablesActivity extends AppCompatActivity {
     }
 
     public void onImageClick(View view) {
-        Intent intent = new Intent(".CustomersCountActivity");
+        Intent intent = new Intent(Constants.CUSTOMERS_COUNT_ACTIVITY);
         for (int i = 0; i < tableIds.length; i++) {
             if (view.getId() == tableIds[i]) {
                 System.out.println(i);
-                intent.putExtra("tableName", "Table " + (i + 1));
+                intent.putExtra(Constants.TABLE_NAME_EXTRA, "Table " + (i + 1));
             }
         }
         startActivity(intent);
