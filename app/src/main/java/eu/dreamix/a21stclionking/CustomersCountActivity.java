@@ -20,6 +20,9 @@ public class CustomersCountActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.customerCount);
         textView.setText(String.valueOf(customersCount));
+
+        TextView tableName = findViewById(R.id.tableName);
+        tableName.setText(getIntent().getStringExtra("tableName"));
     }
 
     public void onOkClick(View view) {

@@ -7,6 +7,21 @@
     android:background="#83C0B448"
     tools:context=".CustomersCountActivity">
 
+    <TextView
+        android:id="@+id/tableName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="318dp"
+        android:text="Table #"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/customerCount"
         android:layout_width="202dp"
@@ -57,7 +72,7 @@
         android:id="@+id/button3"
         android:layout_width="208dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="263dp"
+        android:layout_marginBottom="260dp"
         android:clickable="true"
         android:onClick="onOkClick"
         android:text="@android:string/ok"
@@ -65,6 +80,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/decreaseButton" />
+        app:layout_constraintTop_toBottomOf="@+id/tableName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
