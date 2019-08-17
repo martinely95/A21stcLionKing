@@ -1,4 +1,4 @@
-package eu.dreamix.a21stclionking;
+package eu.dreamix.a21stclionking.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import eu.dreamix.a21stclionking.R;
 
 public class FoodsActivity extends AppCompatActivity {
 

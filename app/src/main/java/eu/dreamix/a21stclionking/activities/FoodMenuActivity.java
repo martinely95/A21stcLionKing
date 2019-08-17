@@ -1,4 +1,4 @@
-package eu.dreamix.a21stclionking;
+package eu.dreamix.a21stclionking.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import eu.dreamix.a21stclionking.R;
 
 public class FoodMenuActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

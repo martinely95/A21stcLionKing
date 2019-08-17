@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#83C0B448"
-    tools:context=".FoodMenuActivity">
+    tools:context=".activities.FoodMenuActivity">
 
     <Spinner
         android:id="@+id/spinner"
