@@ -3,6 +3,7 @@ package eu.dreamix.a21stclionking.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.util.PreviousMargins;
@@ -24,7 +28,8 @@ public class CustomerMenuActivity extends AppCompatActivity {
     static final int LEFT_MARGIN = 50;
     static final int USER_NAME_VERTICAL_MARGIN = 150;
     static final int FIRST_CUSTOMER_VERTICAL_MARGIN_DECREASE = 110;
-    static final int TEXT_SIZE = 30;
+    static final int CUSTOMER_NAME_TEXT_SIZE = 30;
+    static final int MENU_ITEM_TEXT_SIZE = 15;
     static final int BUTTON_TEXT_SIZE = 20;
     static final int CUSTOMER_MENU_BUTTON_WIDTH = 120;
     static final int CUSTOMER_MENU_BUTTON_HEIGHT = 120;
@@ -35,6 +40,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
     private static final int BUTTON_VERTICAL_MARGIN = 120;
     private int customersCount = 1;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
         setRelativeLayout();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setRelativeLayout() {
         setContentView(R.layout.activity_customer_menu);
 
@@ -58,6 +65,12 @@ public class CustomerMenuActivity extends AppCompatActivity {
             previousMargins.leftMargin = 0;
             addEmptyCustomerToLayout(layout, "Customer" + (customerIndex + 1), previousMargins);
 
+            List<String> meals = Storage.getMealsForCustomerId(customerIndex);
+            for (int mealId = 0; mealId < meals.size(); mealId++) {
+                previousMargins.leftMargin = 0;
+                addMenuItemToCustomerOnLayout(layout, meals.get(mealId), previousMargins);
+            }
+
             // Add new customer button
             previousMargins.leftMargin = 0;
             addButtonToLayout(layout, "Add Meal", previousMargins, customerIndex);
@@ -69,26 +82,26 @@ public class CustomerMenuActivity extends AppCompatActivity {
     }
 
     private void addEmptyCustomerToLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
-        addTextViewToLayout(layout, text, previousMargins);
+        addTextViewToLayout(layout, text, previousMargins, CUSTOMER_NAME_TEXT_SIZE);
 
         // Add delete customer button
         addButtonToLayoutHorizontally(layout, "X", previousMargins);
     }
 
     private void addMenuItemToCustomerOnLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
-        addTextViewToLayout(layout, text, previousMargins);
+        addTextViewToLayout(layout, text, previousMargins, MENU_ITEM_TEXT_SIZE);
 
         // Add copy item button
-        addButtonToLayoutHorizontally(layout, "*", previousMargins);
+//        addButtonToLayoutHorizontally(layout, "*", previousMargins);
 
         addButtonToLayoutHorizontally(layout, "Y", previousMargins);
 
-        addButtonToLayoutHorizontally(layout, "+", previousMargins);
-
-        addButtonToLayoutHorizontally(layout, "-", previousMargins);
+//        addButtonToLayoutHorizontally(layout, "+", previousMargins);
+//
+//        addButtonToLayoutHorizontally(layout, "-", previousMargins);
     }
 
-    private void addTextViewToLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
+    private void addTextViewToLayout(ViewGroup layout, String text, PreviousMargins previousMargins, int textSize) {
         // Create a TextView programmatically.
         TextView tv = new TextView(this);
 
@@ -112,7 +125,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         tv.setTypeface(null, Typeface.BOLD);
 
-        tv.setTextSize(TEXT_SIZE);
+        tv.setTextSize(textSize);
 
         tv.setLayoutParams(lp);
 
@@ -193,7 +206,6 @@ public class CustomerMenuActivity extends AppCompatActivity {
         // Add newly created TextView to parent view group (RelativeLayout)
         layout.addView(button);
     }
-
 
     private void addButtonToLayoutHorizontally(
             ViewGroup layout,
