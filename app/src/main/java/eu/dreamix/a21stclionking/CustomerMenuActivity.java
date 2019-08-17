@@ -1,6 +1,7 @@
 package eu.dreamix.a21stclionking;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_menu);
-        customersCount = getIntent().getIntExtra("customersCount", INITIAL_CUSTOMERS_COUNT);
+        customersCount = getIntent().getIntExtra(Constants.CUSTOMERS_COUNT_EXTRA, INITIAL_CUSTOMERS_COUNT);
         System.out.println(customersCount);
         setRelativeLayout();
     }
@@ -27,7 +28,12 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         // Get the widgets reference from XML layout
         RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl);
+        rl.setBackgroundColor(Color.parseColor("#83C0B448"));
+        addTextViewToLayout(rl, "Test");
 
+    }
+
+    private void addTextViewToLayout(RelativeLayout rl, String text) {
         // Create a TextView programmatically.
         TextView tv = new TextView(getApplicationContext());
 
@@ -40,10 +46,14 @@ public class CustomerMenuActivity extends AppCompatActivity {
         tv.setLayoutParams(lp);
 
         // Set text to display in TextView
-        tv.setText("This is a sample TextView...");
+        tv.setText(text);
 
         // Set a text color for TextView text
-        tv.setTextColor(Color.parseColor("#ff0000"));
+        tv.setTextColor(Color.parseColor("#000000"));
+
+        tv.setTypeface(null, Typeface.BOLD);
+
+        tv.setTextSize(30);
 
         // Add newly created TextView to parent view group (RelativeLayout)
         rl.addView(tv);
