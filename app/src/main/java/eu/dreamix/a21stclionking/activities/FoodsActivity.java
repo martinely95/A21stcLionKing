@@ -51,20 +51,23 @@ public class FoodsActivity extends AppCompatActivity {
     }
 
     public void setListView(String category) {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_foods, R.id.categoryTitle,
-                intent.getStringArrayListExtra(category)) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent){
-
-                View view = super.getView(position, convertView, parent);
-
-                TextView tv = view.findViewById(R.id.categoryTitle);
-
-                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP,20);
-
-                return view;
-            }
-        };
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_food, R.id.food,
+                  intent.getStringArrayListExtra(category));
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent){
+//
+//                View view = super.getView(position, convertView, parent);
+//
+////                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+////                layoutParams.height = 50;
+//
+////                TextView tv = view.findViewById(R.id.food);
+////
+////                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP,20);
+//
+//                return view;
+//            }
+//        };
 
         listView.setAdapter(adapter);
     }
