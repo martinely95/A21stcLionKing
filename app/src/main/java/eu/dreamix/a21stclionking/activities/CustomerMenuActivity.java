@@ -75,6 +75,14 @@ public class CustomerMenuActivity extends AppCompatActivity {
                     }
                 });
 
+        previousMargins.leftMargin = 0;
+        addTextViewToLayout(
+                layout,
+                "Total: $" + calculateSubTotal(Storage.getAllMeals()),
+                previousMargins,
+                MENU_ITEM_TEXT_SIZE
+        );
+
         for (int customerIndex = 0; customerIndex < Storage.customersCount; customerIndex++) {
             previousMargins.leftMargin = 0;
             addEmptyCustomerToLayout(layout, "Customer" + (customerIndex + 1), previousMargins);

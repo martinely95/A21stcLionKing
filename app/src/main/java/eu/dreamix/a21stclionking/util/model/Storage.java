@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Storage {
 
@@ -20,6 +21,17 @@ public class Storage {
     public static List<String> getMealsForCustomerId(int customerId) {
         return customerMeals
                 .getOrDefault(customerId, new ArrayList<String>());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static List<String> getAllMeals() {
+        List<String> meals = new ArrayList<>();
+
+        for (Map.Entry<Integer, List<String>> entry : customerMeals.entrySet()) {
+            meals.addAll(entry.getValue());
+        }
+
+        return meals;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
