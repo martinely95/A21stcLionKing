@@ -38,13 +38,14 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         layout.setBackgroundColor(Color.parseColor("#83C0B448"));
 
-        int topMargin = -FIRST_CUSTOMER_VERTICAL_MARGIN_DECREASE;
+        PreviousMargins previousMargins = new PreviousMargins(-FIRST_CUSTOMER_VERTICAL_MARGIN_DECREASE, 0);
+
         for (int customerIndex = 0; customerIndex < customersCount; customerIndex++) {
-            topMargin = addTextViewToLayout(layout, "Customer" + (customerIndex + 1), topMargin);
+            addTextViewToLayout(layout, "Customer" + (customerIndex + 1), previousMargins);
         }
     }
 
-    private int addTextViewToLayout(ViewGroup layout, String text, int previousViewTopMargin) {
+    private void addTextViewToLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
         // Create a TextView programmatically.
         TextView tv = new TextView(this);
 
@@ -54,8 +55,8 @@ public class CustomerMenuActivity extends AppCompatActivity {
                 RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
 
         lp.leftMargin = LEFT_MARGIN;
-        previousViewTopMargin = previousViewTopMargin + USER_NAME_VERTICAL_MARGIN;
-        lp.topMargin = previousViewTopMargin;
+        previousMargins.topMargin += USER_NAME_VERTICAL_MARGIN;
+        lp.topMargin = previousMargins.topMargin;
 
         // Apply the layout parameters to TextView widget
         tv.setLayoutParams(lp);
@@ -75,10 +76,10 @@ public class CustomerMenuActivity extends AppCompatActivity {
         // Add newly created TextView to parent view group (RelativeLayout)
         layout.addView(tv);
 
-        return addButtonToLayoutVertically(layout, "+", previousViewTopMargin);
+        addButtonToLayoutVertically(layout, "+", previousMargins);
     }
 
-    private int addButtonToLayoutVertically(ViewGroup layout, String text, int previousViewTopMargin) {
+    private void addButtonToLayoutVertically(ViewGroup layout, String text, PreviousMargins previousMargins) {
         // Create a TextView programmatically.
         Button button = new Button(this);
 
@@ -88,8 +89,8 @@ public class CustomerMenuActivity extends AppCompatActivity {
                 RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
 
         lp.leftMargin = LEFT_MARGIN;
-        previousViewTopMargin = previousViewTopMargin + BUTTON_VERTICAL_MARGIN;
-        lp.topMargin = previousViewTopMargin;
+        previousMargins.topMargin += BUTTON_VERTICAL_MARGIN;
+        lp.topMargin = previousMargins.topMargin;
 
         // Apply the layout parameters to TextView widget
         button.setLayoutParams(lp);
@@ -106,7 +107,5 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         // Add newly created TextView to parent view group (RelativeLayout)
         layout.addView(button);
-
-        return previousViewTopMargin;
     }
 }
