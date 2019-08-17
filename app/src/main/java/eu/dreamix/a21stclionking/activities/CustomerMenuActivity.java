@@ -78,7 +78,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
                 layout,
                 "Total: $" + calculateSubTotal(Storage.getAllMeals()),
                 previousMargins,
-                MENU_ITEM_TEXT_SIZE
+                BUTTON_TEXT_SIZE
         );
 
         for (int customerIndex = 0; customerIndex < Storage.customersCount; customerIndex++) {
