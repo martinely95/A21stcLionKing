@@ -1,8 +1,10 @@
 package eu.dreamix.a21stclionking.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -176,6 +178,15 @@ public class CustomerMenuActivity extends AppCompatActivity {
         button.setTypeface(null, Typeface.BOLD);
 
         button.setTextSize(BUTTON_TEXT_SIZE);
+
+        button.setClickable(true);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Constants.FOOD_MENU_ACTIVITY);
+                startActivity(intent);
+            }
+        });
 
         // Add newly created TextView to parent view group (RelativeLayout)
         layout.addView(button);
