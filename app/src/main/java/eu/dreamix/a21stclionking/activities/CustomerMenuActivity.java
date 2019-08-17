@@ -88,7 +88,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
             previousMargins.leftMargin = 0;
             addTextViewToLayout(
                     layout,
-                    "Subtotal: " + calculateSubTotal(Storage.getMealsForCustomerId(customerIndex)),
+                    "Subtotal: $" + calculateSubTotal(Storage.getMealsForCustomerId(customerIndex)),
                     previousMargins,
                     MENU_ITEM_TEXT_SIZE
             );
