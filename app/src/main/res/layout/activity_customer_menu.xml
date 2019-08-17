@@ -7,4 +7,18 @@
     android:background="#83C0B448"
     android:id="@+id/mainConstraint"
     tools:context=".activities.CustomerMenuActivity">
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <RelativeLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:id="@+id/mainRelativeLayout"
+                >
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

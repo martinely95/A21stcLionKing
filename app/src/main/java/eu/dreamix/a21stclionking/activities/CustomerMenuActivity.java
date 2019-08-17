@@ -55,8 +55,11 @@ public class CustomerMenuActivity extends AppCompatActivity {
     private void setRelativeLayout() {
         setContentView(R.layout.activity_customer_menu);
 
-        RelativeLayout layout = new RelativeLayout(this);
-        setContentView(layout);
+//        RelativeLayout layout = new RelativeLayout(this);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainRelativeLayout);
+
+//        RelativeLayout layout = R.layout.
+//        setContentView(layout);
 
         layout.setBackgroundColor(Color.parseColor("#83C0B448"));
 
