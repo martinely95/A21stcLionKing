@@ -1,4 +1,4 @@
-package eu.dreamix.a21stclionking;
+package eu.dreamix.a21stclionking.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static eu.dreamix.a21stclionking.Constants.INITIAL_CUSTOMERS_COUNT;
+import eu.dreamix.a21stclionking.util.Constants;
+import eu.dreamix.a21stclionking.R;
+
+import static eu.dreamix.a21stclionking.util.Constants.INITIAL_CUSTOMERS_COUNT;
 
 public class CustomersCountActivity extends AppCompatActivity {
 

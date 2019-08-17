@@ -1,4 +1,4 @@
-package eu.dreamix.a21stclionking;
+package eu.dreamix.a21stclionking.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +17,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import eu.dreamix.a21stclionking.util.Constants;
+import eu.dreamix.a21stclionking.R;
 
 public class TablesActivity extends AppCompatActivity {
 

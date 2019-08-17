@@ -18,33 +18,31 @@
         </activity>
         <activity android:name=".FoodMenuActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name=".FoodMenuActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomerMenuActivity">
+        <activity android:name=".activities.CustomerMenuActivity">
             <intent-filter>
                 <action android:name=".CustomerMenuActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomersCountActivity">
+        <activity android:name=".activities.CustomersCountActivity">
             <intent-filter>
                 <action android:name=".CustomersCountActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".TablesActivity">
+        <activity android:name=".activities.TablesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
