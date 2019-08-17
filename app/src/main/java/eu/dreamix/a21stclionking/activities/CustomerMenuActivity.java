@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.util.PreviousMargins;
 import eu.dreamix.a21stclionking.R;
+import eu.dreamix.a21stclionking.util.model.Storage;
 
 import static eu.dreamix.a21stclionking.util.Constants.INITIAL_CUSTOMERS_COUNT;
 
@@ -59,7 +60,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
             // Add new customer button
             previousMargins.leftMargin = 0;
-            addButtonToLayout(layout, "Add Meal", previousMargins);
+            addButtonToLayout(layout, "Add Meal", previousMargins, customerIndex);
         }
 
         // Add new customer button
@@ -152,7 +153,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
         layout.addView(button);
     }
 
-    private void addButtonToLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
+    private void addButtonToLayout(ViewGroup layout, String text, PreviousMargins previousMargins, final int customerIndex) {
         // Create a TextView programmatically.
         Button button = new Button(this);
 
@@ -184,6 +185,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Constants.FOOD_MENU_ACTIVITY);
+                Storage.clientId = customerIndex;
                 startActivity(intent);
             }
         });

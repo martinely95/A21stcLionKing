@@ -1,17 +1,19 @@
 package eu.dreamix.a21stclionking.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import eu.dreamix.a21stclionking.R;
+import eu.dreamix.a21stclionking.util.model.Storage;
 
 public class FoodsActivity extends AppCompatActivity {
 
@@ -29,6 +31,7 @@ public class FoodsActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listOfFoods);
 
+        System.out.println(Storage.clientId);
 
         if (intent.getStringExtra("salad") != null) {
             textView.setText("SALADS");
@@ -48,11 +51,22 @@ public class FoodsActivity extends AppCompatActivity {
 
             setListView("drinks");
         }
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long itemId) {
+                TextView textView = (TextView) view;
+                Storage.addMealToCustomerId(Storage.clientId, textView.getText().toString());
+            }
+        });
     }
 
     public void setListView(String category) {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_food, R.id.food,
-                  intent.getStringArrayListExtra(category));
+                intent.getStringArrayListExtra(category));
+
 //            @Override
 //            public View getView(int position, View convertView, ViewGroup parent){
 //
@@ -70,5 +84,6 @@ public class FoodsActivity extends AppCompatActivity {
 //        };
 
         listView.setAdapter(adapter);
+
     }
 }
