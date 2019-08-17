@@ -83,7 +83,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         for (int customerIndex = 0; customerIndex < Storage.customersCount; customerIndex++) {
             previousMargins.leftMargin = 0;
-            addEmptyCustomerToLayout(layout, "Customer" + (customerIndex + 1), previousMargins);
+            addEmptyCustomerToLayout(layout, "Customer " + (customerIndex + 1), previousMargins);
 
             List<String> meals = Storage.getMealsForCustomerId(customerIndex);
             for (int mealId = 0; mealId < meals.size(); mealId++) {
