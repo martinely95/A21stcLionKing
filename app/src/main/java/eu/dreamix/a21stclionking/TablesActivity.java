@@ -1,10 +1,21 @@
 package eu.dreamix.a21stclionking;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TablesActivity extends AppCompatActivity {
@@ -23,10 +34,24 @@ public class TablesActivity extends AppCompatActivity {
             R.id.tableText4,
     };
 
+    @NonNull
+    static private Bitmap getBitmapFromDrawable(@NonNull Drawable drawable) {
+        final Bitmap bmp = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bmp);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bmp;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tables);
+
+        for (int tableId : tableIds) {
+            roundImage((ImageView) findViewById(tableId));
+        }
     }
 
     public void onImageClick(View view) {
@@ -40,4 +65,17 @@ public class TablesActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void roundImage(ImageView imageView) {
+        Bitmap mbitmap = getBitmapFromDrawable(getDrawable(R.mipmap.ic_launcher_foreground));
+        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
+        Canvas canvas = new Canvas(imageRounded);
+        Paint mpaint = new Paint();
+        mpaint.setAntiAlias(true);
+        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
+        imageView.setImageBitmap(imageRounded);
+    }
+
 }
