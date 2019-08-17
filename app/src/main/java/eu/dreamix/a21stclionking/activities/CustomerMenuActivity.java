@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,13 +64,14 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
         addButtonToLayoutVertically(
                 layout,
-                "Tables",
+                "Finish",
                 previousMargins,
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), TablesActivity.class);
                         startActivity(intent);
+                        Toast.makeText(getApplicationContext(), "Finished!", Toast.LENGTH_LONG).show();
                     }
                 });
 
