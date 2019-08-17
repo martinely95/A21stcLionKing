@@ -19,6 +19,7 @@ import java.util.List;
 import eu.dreamix.a21stclionking.R;
 import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.util.PreviousMargins;
+import eu.dreamix.a21stclionking.util.model.Meal;
 import eu.dreamix.a21stclionking.util.model.Storage;
 
 import static eu.dreamix.a21stclionking.util.Constants.INITIAL_CUSTOMERS_COUNT;
@@ -84,6 +85,14 @@ public class CustomerMenuActivity extends AppCompatActivity {
                 addMenuItemToCustomerOnLayout(layout, meals.get(mealId), previousMargins);
             }
 
+            previousMargins.leftMargin = 0;
+            addTextViewToLayout(
+                    layout,
+                    "Subtotal: " + calculateSubTotal(Storage.getMealsForCustomerId(customerIndex)),
+                    previousMargins,
+                    MENU_ITEM_TEXT_SIZE
+            );
+
             // Add new customer button
             previousMargins.leftMargin = 0;
             addButtonToLayout(layout, "Add Meal", previousMargins, customerIndex);
@@ -112,6 +121,15 @@ public class CustomerMenuActivity extends AppCompatActivity {
 //        addButtonToLayoutHorizontally(layout, "+", previousMargins);
 //
 //        addButtonToLayoutHorizontally(layout, "-", previousMargins);
+    }
+
+    private double calculateSubTotal(List<String> meals) {
+        double sum = 0;
+        for (String meal : meals) {
+            Meal mealM = new Meal(meal);
+            sum += mealM.price;
+        }
+        return sum;
     }
 
     private void addTextViewToLayout(ViewGroup layout, String text, PreviousMargins previousMargins, int textSize) {
