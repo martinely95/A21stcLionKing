@@ -75,10 +75,10 @@ public class CustomerMenuActivity extends AppCompatActivity {
         // Add newly created TextView to parent view group (RelativeLayout)
         layout.addView(tv);
 
-        return addButtonToLayout(layout, "+", previousViewTopMargin);
+        return addButtonToLayoutVertically(layout, "+", previousViewTopMargin);
     }
 
-    private int addButtonToLayout(ViewGroup layout, String text, int previousViewTopMargin) {
+    private int addButtonToLayoutVertically(ViewGroup layout, String text, int previousViewTopMargin) {
         // Create a TextView programmatically.
         Button button = new Button(this);
 
