@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import eu.dreamix.a21stclionking.util.Constants;
 import eu.dreamix.a21stclionking.R;
+import eu.dreamix.a21stclionking.util.model.Storage;
 
 import static eu.dreamix.a21stclionking.util.Constants.INITIAL_CUSTOMERS_COUNT;
 
@@ -19,6 +20,8 @@ public class CustomersCountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Storage.cleanStorage();
+
         setContentView(R.layout.activity_customers_count);
 
         TextView textView = findViewById(R.id.customerCount);

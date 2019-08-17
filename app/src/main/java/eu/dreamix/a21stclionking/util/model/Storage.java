@@ -17,6 +17,12 @@ public class Storage {
 
     private static HashMap<Integer, List<String>> customerMeals = new HashMap<>();
 
+    public static void cleanStorage() {
+        customerMeals = new HashMap<>();
+        clientId = 0;
+        customersCount = 1;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static List<String> getMealsForCustomerId(int customerId) {
         return customerMeals
