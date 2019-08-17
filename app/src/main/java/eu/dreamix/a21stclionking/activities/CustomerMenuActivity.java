@@ -105,15 +105,16 @@ public class CustomerMenuActivity extends AppCompatActivity {
         }
 
         // Add new customer button
-        previousMargins.topMargin += LARGE_MARGIN;
-        addButtonToLayoutVertically(layout, "Add Customer", previousMargins);
+        //previousMargins.topMargin += LARGE_MARGIN;
+        //
+        // addButtonToLayoutVertically(layout, "Add Customer", previousMargins);
     }
 
     private void addEmptyCustomerToLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
         addTextViewToLayout(layout, text, previousMargins, CUSTOMER_NAME_TEXT_SIZE);
 
         // Add delete customer button
-        addButtonToLayoutHorizontally(layout, "X", previousMargins);
+        //addButtonToLayoutHorizontally(layout, "X", previousMargins);
     }
 
     private void addMenuItemToCustomerOnLayout(ViewGroup layout, String text, PreviousMargins previousMargins) {
@@ -122,7 +123,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
         // Add copy item button
 //        addButtonToLayoutHorizontally(layout, "*", previousMargins);
 
-        addButtonToLayoutHorizontally(layout, "Y", previousMargins);
+//        addButtonToLayoutHorizontally(layout, "Y", previousMargins);
 
 //        addButtonToLayoutHorizontally(layout, "+", previousMargins);
 //
