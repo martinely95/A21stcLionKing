@@ -6,6 +6,12 @@ public class Meal {
     public String name;
     public double price;
 
+    public Meal(String meal) {
+        this.id = Integer.parseInt(meal.substring(1, meal.indexOf("]")));
+        this.name = meal.substring(meal.indexOf("] ") + 2, meal.indexOf(" $"));
+        this.price = Double.parseDouble(meal.substring(meal.indexOf("$") + 1));
+    }
+
     public Meal(int id, String name, double price) {
         this.id = id;
         this.name = name;
