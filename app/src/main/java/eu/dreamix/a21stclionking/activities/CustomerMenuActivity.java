@@ -78,7 +78,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
                 layout,
                 "Total: $" + calculateSubTotal(Storage.getAllMeals()),
                 previousMargins,
-                BUTTON_TEXT_SIZE
+                CUSTOMER_NAME_TEXT_SIZE
         );
 
         for (int customerIndex = 0; customerIndex < Storage.customersCount; customerIndex++) {
@@ -96,7 +96,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
                     layout,
                     "Subtotal: $" + calculateSubTotal(Storage.getMealsForCustomerId(customerIndex)),
                     previousMargins,
-                    MENU_ITEM_TEXT_SIZE
+                    BUTTON_TEXT_SIZE
             );
 
             // Add new customer button
