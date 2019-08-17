@@ -53,17 +53,13 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setRelativeLayout() {
-
-
         setContentView(R.layout.activity_customer_menu);
 
         RelativeLayout layout = findViewById(R.id.mainRelativeLayout);
 
-
         layout.setBackgroundColor(Color.parseColor("#83C0B448"));
 
         PreviousMargins previousMargins = new PreviousMargins(-FIRST_CUSTOMER_VERTICAL_MARGIN_DECREASE, 0);
-
 
         addButtonToLayoutVertically(
                 layout,
