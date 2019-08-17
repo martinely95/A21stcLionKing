@@ -6,4 +6,5 @@ public class Constants {
     public static final String CUSTOMERS_COUNT_EXTRA = "customersCount";
     public static final String CUSTOMER_MENU_ACTIVITY = ".CustomerMenuActivity";
     public static final String CUSTOMERS_COUNT_ACTIVITY = ".CustomersCountActivity";
+    public static final String FOOD_MENU_ACTIVITY = ".FoodMenuActivity";
 }
