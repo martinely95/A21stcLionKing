@@ -59,7 +59,7 @@ public class FoodMenuActivity extends AppCompatActivity implements AdapterView.O
                 List<String> mains = new ArrayList<>(Arrays.asList(
                         "[0] Creamy courgette lasagne $8.50",
                         "[1] Salmon with roast asparagus $12.00",
-                        "[2] Chicken & mushroom puff pie $10.00"));
+                        "[2] Chicken pie $10.00"));
 
                 intent.putStringArrayListExtra("mains", (ArrayList<String>)mains);
 
